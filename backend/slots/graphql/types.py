@@ -7,7 +7,7 @@ from resources.graphql.types import ResourceType
 
 
 @strawberry.type
-class ReservedSlot:
+class ReservedSlotType:
     resource: ResourceType
     name: str
     description: str
@@ -17,5 +17,12 @@ class ReservedSlot:
 
 
 @strawberry.type
+class SlotType:
+    start_time: time
+    end_time: time
+    reserved: bool
+
+
+@strawberry.type
 class PaginatedReservedSlotType(PaginatedQueryType):
-    edges: list[ReservedSlot]
+    edges: list[ReservedSlotType]
